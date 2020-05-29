@@ -14,7 +14,7 @@ client.on("message", msg => {
   var msgAuthor = msg.member
   var rollTaker = "162997214199676928"
   let students = []
-  if (tmp === "!ROLL" && (authorRole === "@the_boys" || author === "162997214199676928" || author == "172143655518208000")) {
+  if (tmp === "!ROLL" && (authorRole === "@the_boys" || author === "162997214199676928" || author === "172143655518208000")) {
     msg.channel.send("React to this!")
     .then(function (botMsg) {
       botMsg.react('✋')
