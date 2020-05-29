@@ -1,0 +1,4 @@
+#Git should ignore this stuff in this file
+.vscode/
+.dev
+.env
