@@ -9,9 +9,9 @@ client.on("ready", () => {
 
 client.on("message", msg => {
   var tmp = msg.content.toUpperCase() // Converts most recent message to uppercase
-  var authorRole = msg.member.roles.highest.name // Gets the highest roll of the person who initiated the command
+  var authorRole = msg.member.roles.highest.name // Gets the highest server role of the person who initiated the command
   var author = msg.member.id // Gets their id
-  var msgAuthor = msg.member // Gets their member class
+  var msgAuthor = msg.member // Gets their member profile
   var rollTaker = "162997214199676928"
   var students = []
   if (tmp === "!ROLL" && (authorRole === "@the_boys" || author === "162997214199676928" || author === "172143655518208000")) {
