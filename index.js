@@ -1,4 +1,4 @@
-// Made by: Michael Juarez
+// Made by: Michael Juarez & JT Harlan
 
 require("dotenv").config()
 const Discord = require("discord.js")
