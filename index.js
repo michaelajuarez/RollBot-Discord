@@ -22,7 +22,7 @@ client.on("message", msg => {
       const filter = (reaction, user) => {
         return reaction.emoji.name === '✋' && user.id != botMsg.author.id
       }
-      const collector = botMsg.createReactionCollector(filter, { time: 5000})
+      const collector = botMsg.createReactionCollector(filter, {time: 5000})
 
       console.log('Beginning to collect...')
       collector.on('collect', (reaction, user) => {
