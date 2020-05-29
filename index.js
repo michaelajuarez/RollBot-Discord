@@ -8,33 +8,33 @@ client.on("ready", () => {
 })
 
 client.on("message", msg => {
-  var tmp = msg.content.toUpperCase()
-  var authorRole = msg.member.roles.highest.name
-  var author = msg.member.id
-  var msgAuthor = msg.member
+  var tmp = msg.content.toUpperCase() // Converts most recent message to uppercase
+  var authorRole = msg.member.roles.highest.name // Gets the highest roll of the person who initiated the command
+  var author = msg.member.id // Gets their id
+  var msgAuthor = msg.member // Gets their member class
   var rollTaker = "162997214199676928"
-  let students = []
+  var students = []
   if (tmp === "!ROLL" && (authorRole === "@the_boys" || author === "162997214199676928" || author === "172143655518208000")) {
     msg.channel.send("React to this!")
     .then(function (botMsg) {
-      botMsg.react('✋')
+      botMsg.react('✋') // Reacts to above message ^ <-[("React to this!")]
 
       const filter = (reaction, user) => {
-        return reaction.emoji.name === '✋' && user.id != botMsg.author.id
+        return reaction.emoji.name === '✋' && user.id != botMsg.author.id // Filter to make sure people are using the correct emote to react
       }
       const collector = botMsg.createReactionCollector(filter, {time: 5000})
 
       console.log('Beginning to collect...')
-      collector.on('collect', (reaction, user) => {
+      collector.on('collect', (reaction, user) => { // Waits for people to react
         console.log(`Collected "${reaction.emoji.name}" from ${user.tag}`)
         students.push(user.username)
       })
-      collector.on('end', collected => {
+      collector.on('end', collected => { // Executes after the time ends
         console.log(`Collected "${students.length}" items`)
         botMsg.edit("Alright, that's all for now folks!")
 
         students.sort()
-        var printArr = students.join('\n')
+        var printArr = students.join('\n') // Puts elements of array into large string
         
         // For some reason, sending a DM breaks the bot
         // msgAuthor.send('>>> __***Rollcall:***__\n' + printArr)
@@ -43,7 +43,7 @@ client.on("message", msg => {
         if (students.length === 0) {
           msg.channel.send('No One is Here!')
         } else {
-          msg.channel.send('>>> __***Rollcall:***__\n' + printArr)
+          msg.channel.send('>>> __***Rollcall:***__\n' + printArr) // Prints out student list
         }
       })
     })
