@@ -11,7 +11,7 @@ client.on("message", msg => {
   var tmp = msg.content.toUpperCase()
   var authorRole = msg.member.roles.highest.name
   var author = msg.member.id
-  var kerney = "162997214199676928"
+  var rollTaker = "162997214199676928"
   let students = []
   if (tmp === "!ROLL" && (authorRole === "@the_boys" || author === "162997214199676928" || author == "172143655518208000")) {
     msg.channel.send("React to this!")
@@ -33,7 +33,7 @@ client.on("message", msg => {
         botMsg.edit("Alright, that's all for now folks!")
         
         // For some reason, sending a DM breaks the bot
-        // const rollTaker = client.users.cache.get(kerney)
+        // const rollTaker = client.users.cache.get(rollTaker)
         // rollTaker.send('Test')
 
         // So, for now, I decided to just have it print out in the channel in which it is called. I definitely need to figure this out later.
