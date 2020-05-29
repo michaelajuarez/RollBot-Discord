@@ -36,7 +36,7 @@ client.on("message", msg => {
         // const rollTaker = client.users.cache.get(rollTaker)
         // rollTaker.send('Test')
 
-        // So, for now, I decided to just have it print out in the channel in which it is called. I definitely need to figure this out later.
+        // So, for now, I decided to just have it print out in the channel in which it is called. Will need to fix later.
         students.sort()
         var printArr = students.join('\n')
         msg.channel.send('>>> __***Rollcall:***__\n' + printArr)
